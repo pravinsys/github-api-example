@@ -1,0 +1,16 @@
+
+<h1>Search Public GitHub Repositories</h1>
+<p>
+  <%= form_tag("/repositories", method: "get") do %>
+    <%= label_tag(:q, "Search:") %>
+    <%= text_field_tag(:q, params[:q]) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</p>
+
+<% if @response %>
+  <div class="repositories">
+    <%= render partial: "repositories" %>
+  </div>
+<% end %>
+

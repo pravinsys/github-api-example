@@ -1,0 +1,22 @@
+<% @response.items.each do |item| %>
+  <div class="repo-section">
+    <h3><%= link_to item.name, item.html_url %></h3>
+    <%= item.description %>
+  </div>
+<% end %>
+<div class="pagination-links">
+  <% if @response.links.first %>
+    <%= link_to "First", paginated_link_url(@response.links.first) %> &nbsp;
+  <% end %>
+  <% if @response.links.prev %>
+    <%= link_to "Prev", paginated_link_url(@response.links.prev) %> &nbsp;
+  <% end %>
+  <% if @response.links.next %>
+    <%= link_to "Next", paginated_link_url(@response.links.next) %> &nbsp;
+  <% end %>
+  <% if @response.links.last %>
+    <%= link_to "Last", paginated_link_url(@response.links.last) %> &nbsp;
+  <% end %>
+</div>
+
+
